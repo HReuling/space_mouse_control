@@ -15,7 +15,10 @@
   	<!--> Start Spacenav (3D-Maus) Node -->
 	<include file="$(find spacenav_node)/launch/classic.launch" />
   	
-  	<!--> Start Mouse Control -->
-    	<node pkg="space_mouse_control" name="execute_xyzTrajectories_with_gripper" type="execute_xyzTrajectories_with_gripper.py" output="screen"/>
+  	<!--> Start Gripper Publisher -->
+  	<node pkg="robotiq_gripper" name="position_gripper" type="position_gripper.py" output="screen"/>
+
+	<!--> Start Mouse Control -->
+	<node pkg="space_mouse_control" name="execute_xyzTrajectories_with_gripper" type="execute_xyzTrajectories_with_gripper.py" output="screen"/>
     	
 </launch>
