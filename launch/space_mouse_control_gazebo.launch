@@ -1,0 +1,11 @@
+<launch>
+	<!--> Start Rviz und Gazebo -->
+	<include file="$(find emr22)/launch/ur5_gazebo_moveIt_bringup.launch" />
+	
+	<!--> Start Spacenav (3D-Maus) Node -->
+	<include file="$(find spacenav_node)/launch/classic.launch" />
+	
+	<!--> Start Mouse Control -->
+    	<node pkg="space_mouse_control" name="execute_xyzTrajectories" type="execute_xyzTrajectories.py" output="screen"/>
+
+</launch>

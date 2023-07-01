@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import sys
 import copy
 import rospy
@@ -35,11 +36,9 @@ class ExecuteXyzWithGripper():
 
         # planning parameters
         self.group.allow_replanning(True)
-        self.group.set_pose_reference_frame("world")
+        self.group.set_pose_reference_frame("world") # reference coordinate system
         self.group.set_planning_time(1)
-
-        print(self.group.get_current_pose())
-        print(self.group.get_current_rpy())
+        self.group.set_end_effector_link("tool0") # set TCP
 
         self.rate = rospy.Rate(10)
 

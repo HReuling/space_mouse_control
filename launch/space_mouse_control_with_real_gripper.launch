@@ -1,0 +1,21 @@
+<launch>
+
+	<!--> Start UR3 BringUp -->
+	<include file="$(find ur_robot_driver)/launch/ur3e_bringup.launch" >
+	    <param name="robot_ip" type="string" value="192.168.1.1"/>
+	    <param name="kinematics_config" type="string" value="$(rospack find ur_calibration)/etc/ur3_robot_calibration.yaml" />
+	  </include>
+	  
+	<!--> Start Rviz -->	  
+  	<include file="$(find ur3_gripper_moveit_config)/launch/demo_real_ur3.launch" >
+  		<param name="sim" type="boolean" value="false"/>
+  		<param name="limited" type="boolean" value="true"/>
+  	</include>
+  	
+  	<!--> Start Spacenav (3D-Maus) Node -->
+	<include file="$(find spacenav_node)/launch/classic.launch" />
+  	
+  	<!--> Start Mouse Control -->
+    	<node pkg="space_mouse_control" name="execute_xyzTrajectories_with_gripper" type="execute_xyzTrajectories_with_gripper.py" output="screen"/>
+    	
+</launch>

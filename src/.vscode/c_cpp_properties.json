@@ -1,0 +1,43 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/mercokojage/ws_moveit/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/mercokojage/ws_moveit/src/moveit/moveit_planners/chomp/chomp_motion_planner/include/**",
+        "/home/mercokojage/ws_moveit/src/geometric_shapes/include/**",
+        "/home/mercokojage/ws_moveit/src/libuvc_ros/libuvc_camera/include/**",
+        "/home/mercokojage/ws_moveit/src/moveit/moveit_planners/chomp/chomp_interface/include/**",
+        "/home/mercokojage/ws_moveit/src/moveit_resources/prbt_ikfast_manipulator_plugin/include/**",
+        "/home/mercokojage/ws_moveit/src/moveit/moveit_ros/benchmarks/include/**",
+        "/home/mercokojage/ws_moveit/src/moveit/moveit_plugins/moveit_ros_control_interface/include/**",
+        "/home/mercokojage/ws_moveit/src/moveit/moveit_ros/move_group/include/**",
+        "/home/mercokojage/ws_moveit/src/moveit/moveit_ros/occupancy_map_monitor/include/**",
+        "/home/mercokojage/ws_moveit/src/moveit/moveit_ros/robot_interaction/include/**",
+        "/home/mercokojage/ws_moveit/src/moveit/moveit_ros/moveit_servo/include/**",
+        "/home/mercokojage/ws_moveit/src/moveit/moveit_setup_assistant/include/**",
+        "/home/mercokojage/ws_moveit/src/moveit/moveit_plugins/moveit_simple_controller_manager/include/**",
+        "/home/mercokojage/ws_moveit/src/moveit_visual_tools/include/**",
+        "/home/mercokojage/ws_moveit/src/moveit/moveit_planners/pilz_industrial_motion_planner/include/**",
+        "/home/mercokojage/ws_moveit/src/moveit/moveit_planners/pilz_industrial_motion_planner_testutils/include/**",
+        "/home/mercokojage/ws_moveit/src/robotiq/robotiq_gazebo/include/**",
+        "/home/mercokojage/ws_moveit/src/rviz_visual_tools/include/**",
+        "/home/mercokojage/ws_moveit/src/srdfdom/include/**",
+        "/home/mercokojage/ws_moveit/src/Universal_Robots_ROS_Driver/ur_calibration/include/**",
+        "/home/mercokojage/ws_moveit/src/universal_robot/ur_kinematics/include/**",
+        "/home/mercokojage/ws_moveit/src/Universal_Robots_ROS_Driver/ur_robot_driver/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

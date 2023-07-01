@@ -1,0 +1,12 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/mercokojage/ws_moveit/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages",
+        "/home/mercokojage/catkin_ws/src/rtc/rtc_dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/mercokojage/ws_moveit/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages",
+        "/home/mercokojage/catkin_ws/src/rtc/rtc_dist-packages"
+    ]
+}
