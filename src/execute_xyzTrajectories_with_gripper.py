@@ -9,7 +9,7 @@ from tf.transformations import quaternion_from_euler, quaternion_multiply
 from std_msgs.msg import Int16
 
 class ExecuteXyzWithGripper():
-    def __init__(self, speed_angular_param, speed_linear_param) -> None:
+    def __init__(self, speed_angular_param, speed_linear_param, tcp) -> None:
         # space mouse data
         self.current_value = (0,0,0,0,0,0)
         self.buttons = (0,0)
