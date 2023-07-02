@@ -1,5 +1,7 @@
 <launch>
 
+	 <arg name="usb_port" default="/dev/ttyUSB0" />
+
 	<!--> Start UR3 BringUp -->
 	<include file="$(find ur_robot_driver)/launch/ur3e_bringup.launch" >
 	    <param name="robot_ip" type="string" value="192.168.1.1"/>
@@ -17,6 +19,7 @@
   	
   	<!--> Start Gripper Publisher -->
   	<node pkg="robotiq_gripper" name="position_gripper" type="position_gripper.py" output="screen"/>
+		<param name="usb_port" type="string" value="$(arg usb_port)"/>
 
 	<!--> Start Mouse Control -->
 	<node pkg="space_mouse_control" name="execute_xyzTrajectories_with_gripper" type="execute_xyzTrajectories_with_gripper.py" output="screen"/>
