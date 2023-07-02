@@ -9,15 +9,15 @@ from tf.transformations import quaternion_from_euler, quaternion_multiply
 from std_msgs.msg import Int16
 
 class ExecuteXyzWithGripper():
-    def __init__(self) -> None:
+    def __init__(self, speed_angular_param, speed_linear_param) -> None:
         # space mouse data
         self.current_value = (0,0,0,0,0,0)
         self.buttons = (0,0)
         # current gripper target position
         self.current_gripper_position = 0
         # variables for speed adjustment
-        self.speed_linear = 0.05
-        self.speed_angular = -0.2
+        self.speed_linear = speed_linear_param
+        self.speed_angular = speed_angular_param*-1
         self.gripper_speed = 10
 
         # initialize caommander to control robot
@@ -97,4 +97,12 @@ class ExecuteXyzWithGripper():
         return new_pose
     
 if __name__ == '__main__':
-    execute_xyz = ExecuteXyzWithGripper()
+    try:
+        speed_angular = rospy.get_param('~speed_angular')
+        speed_linear = rospy.get_param('~speed_linear')
+    except:
+        speed_angular = 0.2
+        speed_linear = 0.05
+        rospy.loginfo("Spped didn't set, falling back to default")
+
+    execute_xyz = ExecuteXyzWithGripper(speed_angular, speed_linear)

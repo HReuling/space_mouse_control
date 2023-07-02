@@ -1,6 +1,8 @@
 <launch>
 
-	 <arg name="usb_port" default="/dev/ttyUSB0" />
+	<arg name="usb_port" default="/dev/ttyUSB0" />
+	<arg name="speed_angular" default="0.2" />
+	<arg name="speed_linear" default="0.05" />
 
 	<!--> Start UR3 BringUp -->
 	<include file="$(find ur_robot_driver)/launch/ur3e_bringup.launch" >
@@ -23,5 +25,7 @@
 
 	<!--> Start Mouse Control -->
 	<node pkg="space_mouse_control" name="execute_xyzTrajectories_with_gripper" type="execute_xyzTrajectories_with_gripper.py" output="screen"/>
+		<param name="speed_angular" type="double" value="$(arg speed_angular)"/>
+		<param name="speed_linear" type="double" value="$(arg speed_linear)"/>
     	
 </launch>
