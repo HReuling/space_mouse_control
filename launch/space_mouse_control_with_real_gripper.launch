@@ -7,15 +7,12 @@
 
 	<!--> Start UR3 BringUp -->
 	<include file="$(find ur_robot_driver)/launch/ur3e_bringup.launch" >
-	    <param name="robot_ip" type="string" value="192.168.1.1"/>
-	    <param name="kinematics_config" type="string" value="$(rospack find ur_calibration)/etc/ur3_robot_calibration.yaml" />
+	    <arg name="robot_ip" value="192.168.1.1"/>
+	    <arg name="kinematics_config" value="$(find ur_calibration)/etc/ur3_robot_calibration.yaml" />
 	  </include>
 	  
 	<!--> Start Rviz -->	  
-  	<include file="$(find ur3_gripper_moveit_config)/launch/demo_real_ur3.launch" >
-  		<param name="sim" type="boolean" value="false"/>
-  		<param name="limited" type="boolean" value="true"/>
-  	</include>
+  	<include file="$(find ur3_gripper_moveit_config)/launch/demo_real_ur3.launch" />
   	
   	<!--> Start Spacenav (3D-Maus) Node -->
 	<include file="$(find spacenav_node)/launch/classic.launch" />

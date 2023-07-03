@@ -38,7 +38,7 @@ class ExecuteXyzWithGripper():
         self.group.allow_replanning(True)
         self.group.set_pose_reference_frame("world") # reference coordinate system
         self.group.set_planning_time(1)
-        self.group.set_end_effector_link("tool0") # set TCP
+        self.group.set_end_effector_link(tcp) # set TCP
 
         self.rate = rospy.Rate(10)
 
@@ -83,7 +83,7 @@ class ExecuteXyzWithGripper():
         new_pose.pose.position.z = new_pose.pose.position.z + self.current_value[2]*self.speed_linear
 
         # convert angular values from space mouse into quaternion
-        rot_qua = quaternion_from_euler(self.current_value[5]*self.speed_angular,self.current_value[4]*self.speed_angular,self.current_value[3]*self.speed_angular)
+        rot_qua = quaternion_from_euler(self.current_value[3]*self.speed_angular,self.current_value[4]*self.speed_angular,self.current_value[5]*self.speed_angular)
 
         # get angular information from robot
         pose_qua =  [new_pose.pose.orientation.x, new_pose.pose.orientation.y,new_pose.pose.orientation.z,new_pose.pose.orientation.w]
@@ -99,10 +99,18 @@ class ExecuteXyzWithGripper():
 if __name__ == '__main__':
     try:
         speed_angular = rospy.get_param('~speed_angular')
-        speed_linear = rospy.get_param('~speed_linear')
     except:
         speed_angular = 0.2
+        rospy.loginfo("Speed didn't set, falling back to default")
+    try:
+        speed_linear = rospy.get_param('~speed_linear')
+    except:
         speed_linear = 0.05
-        rospy.loginfo("Spped didn't set, falling back to default")
+        rospy.loginfo("Speed didn't set, falling back to default")
+    try:
+        tcp = rospy.get_param('~tcp')
+    except:
+        tcp = "tool0"
+        rospy.loginfo("TCP didn't set, falling back to default")
 
-    execute_xyz = ExecuteXyzWithGripper(speed_angular, speed_linear)
+    execute_xyz = ExecuteXyzWithGripper(speed_angular, speed_linear,tcp)
